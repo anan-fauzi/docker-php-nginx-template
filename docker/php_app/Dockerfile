@@ -4,15 +4,10 @@ RUN echo "UTC" > /etc/timezone
 RUN apk add --no-cache zip unzip curl
 RUN apk add libstdc++ libzip-dev zip
 
-ENV NODE_VERSION v18.16.0
-ENV NODE_PACKAGE_URL https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}-linux-x64.tar.xz
-WORKDIR /opt
-RUN wget $NODE_PACKAGE_URL
-RUN mkdir -p /opt/nodejs
-RUN tar -xvf *.tar.xz --directory /opt/nodejs --strip-components=1
-RUN rm *.tar.xz
-RUN ln -s /opt/nodejs/bin/node /usr/local/bin/node
-RUN ln -s /opt/nodejs/bin/npm /usr/local/bin/npm
+ENV NODE_VERSION 18.18.2-r0
+ENV NPM_VERSION 9.6.6-r0
+RUN apk add nodejs=$NODE_VERSION
+RUN apk add npm=$NPM_VERSION
 
 WORKDIR /var/www/public-html/app
 
