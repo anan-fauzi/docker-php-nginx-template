@@ -13,3 +13,5 @@ Docker and Docker Compose is assumed installed already in you local environment
    docker compose exec php_app sh
    ```
 4. Enjoy, you already iniside the container and can play as you pleased
+
+5. Don't forget to remove readme files on data and src directories.
