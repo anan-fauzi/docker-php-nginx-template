@@ -4,10 +4,8 @@ RUN echo "UTC" > /etc/timezone
 RUN apk add --no-cache zip unzip curl
 RUN apk add libstdc++ libzip-dev zip
 
-ENV NODE_VERSION 18.18.2-r0
-ENV NPM_VERSION 9.6.6-r0
-RUN apk add nodejs=$NODE_VERSION
-RUN apk add npm=$NPM_VERSION
+RUN apk --update add nodejs
+RUN apk --update add npm
 
 WORKDIR /var/www/public-html/app
 
